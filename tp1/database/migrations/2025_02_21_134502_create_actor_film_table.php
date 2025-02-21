@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actor_film', function (Blueprint $table) {
-            $table->id();
+            $table->integer('actor_id')->unsigned()->notNullable();
+            $table->integer('film_id')->unsigned()->notNullable();
             $table->timestamps();
         });
     }

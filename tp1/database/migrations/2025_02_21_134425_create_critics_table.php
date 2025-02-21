@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('critics', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->unsigned()->notNullable();
+            $table->integer('film_id')->unsigned()->notNullable();
+            $table->decimal('score', total:3, places:1)->unsigned()->notNullable();
+            $table->text('comment');
             $table->timestamps();
         });
     }
