@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Film;
 
 class FilmSeeder extends Seeder
 {
@@ -12,6 +14,7 @@ class FilmSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $sql = file_get_contents(database_path() . '/seeders/films.sql');
+        DB::statement($sql);
     }
 }
