@@ -27,4 +27,9 @@ class Film extends Model
     {
         return $this->hasMany(Critic::class, 'film_id');
     }
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class);
+    }
 }
