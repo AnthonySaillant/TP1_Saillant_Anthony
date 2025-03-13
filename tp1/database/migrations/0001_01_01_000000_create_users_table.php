@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('login', 50)->notNullable();
             $table->string('password', 50)->notNullable();
-            $table->string('email')->unique()->notNullable();
+            $table->string('email')->notNullable();
             $table->string('last_name', 50)->notNullable();
             $table->string('first_name', 50)->notNullable();
             $table->rememberToken();

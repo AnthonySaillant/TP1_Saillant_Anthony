@@ -18,6 +18,11 @@ class Film extends Model
         'image'
     ];
 
+    public function averageScore()
+    {
+        return $this->critics()->avg('score');
+    }
+
     public function language()
     {
         return $this->belongsTo(Language::class, 'language_id');
