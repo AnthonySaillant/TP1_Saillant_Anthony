@@ -19,8 +19,8 @@ class ActorResource extends JsonResource
             'last_name' => $this->last_name,
             'first_name' => $this->first_name,
             'birthdate' => $this->birthdate,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'updated_at' => $this->updated_at->toDateTimeString()
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

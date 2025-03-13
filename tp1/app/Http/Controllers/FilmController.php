@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Film;
 use App\Http\Resources\FilmResource;
+use App\Http\Resources\ActorResource;
+use App\Http\Resources\CriticResource;
 
 class FilmController extends Controller
 {
@@ -25,6 +27,8 @@ class FilmController extends Controller
     public function showFilmWithCritics($filmId)
     {
         $film = Film::findOrFail($filmId);
-        $critics = $films->critics;
+        $critics = $film->critics;
+
+        return CriticResource::collection($critics);
     }
 }

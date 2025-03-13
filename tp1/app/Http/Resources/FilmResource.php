@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+
 class FilmResource extends JsonResource
 {
     /**
@@ -24,8 +25,8 @@ class FilmResource extends JsonResource
             'language_id' => $this->language_id,
             'special_features' => $this->special_features,
             'image' => $this->image,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'updated_at' => $this->updated_at->toDateTimeString()
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }
