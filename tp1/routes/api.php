@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Routes;
 
 Route::get('/films', 'App\Http\Controllers\FilmController@index');
 
-Route::get('/critics', 'App\Http\Controllers\CriticController@index');
-
 Route::get('/films/{filmId}/actors', 'App\Http\Controllers\FilmController@showActors');
 
 Route::get('/films/{filmId}/critics', 'App\Http\Controllers\FilmController@showFilmWithCritics');

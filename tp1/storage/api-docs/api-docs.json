@@ -1,0 +1,123 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Film API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/films": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Get list of films",
+                "operationId": "271e474415d2f29bf3c163247c5f4639",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved films"
+                    }
+                }
+            }
+        },
+        "/api/films/{filmId}/actors": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Get actors for a film",
+                "operationId": "bf4a2e206ffff4d62aa29c36faea16b9",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved actors"
+                    },
+                    "204": {
+                        "description": "No actors found"
+                    },
+                    "404": {
+                        "description": "Film not found"
+                    }
+                }
+            }
+        },
+        "/api/films/{filmId}/critics": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Get critics for a film",
+                "operationId": "54c0cec6a455df06a9fbb33fb8c01faf",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved film and critics"
+                    },
+                    "204": {
+                        "description": "No critics found"
+                    },
+                    "404": {
+                        "description": "Film not found"
+                    }
+                }
+            }
+        },
+        "/api/films/{id}/average-score": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Get average score of a film",
+                "operationId": "fcd693de18daad26767293c2f5a2927e",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved film average score"
+                    }
+                }
+            }
+        },
+        "/api/films/search": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Search for films",
+                "operationId": "ddbc3843cfe184eb1429a6ad3d501fbb",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Search by title",
+                        "required": false
+                    },
+                    {
+                        "name": "rating",
+                        "in": "query",
+                        "description": "Search by rating",
+                        "required": false
+                    },
+                    {
+                        "name": "minLength",
+                        "in": "query",
+                        "description": "Search films with minimum length",
+                        "required": false
+                    },
+                    {
+                        "name": "maxLength",
+                        "in": "query",
+                        "description": "Search films with maximum length",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved films"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Films",
+            "description": "Films"
+        }
+    ]
+}
