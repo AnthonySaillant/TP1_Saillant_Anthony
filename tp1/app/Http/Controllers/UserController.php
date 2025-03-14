@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\StoreUserRequest;
@@ -13,6 +14,7 @@ class UserController extends Controller
 {
     const SERVER_ERROR = 'Server error';
     const NO_REVIEWS_FOUND = 'No reviews found for this user.';
+    const USER_NOT_FOUND_MESSAGE = 'User not found';
 
     public function store(StoreUserRequest $request)
     {
@@ -30,6 +32,8 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             $user->update($request->validated());
             return (new UserResource($user))->response()->setStatusCode(200);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => self::USER_NOT_FOUND_MESSAGE], 404);
         } catch (Exception $e) {
             return response()->json(['message' => self::SERVER_ERROR], 500);
         }
